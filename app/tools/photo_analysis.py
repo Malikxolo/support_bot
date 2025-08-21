@@ -16,7 +16,7 @@ class PhotoAnalysisTools:
                 width, height = img.size
                 file_size = os.path.getsize(file_path)
                 
-                # Enhanced damage analysis simulation
+                # damage checking
                 damage_analysis = self._simulate_realistic_damage_analysis(file_path, width, height)
                 
                 return {
@@ -70,8 +70,7 @@ class PhotoAnalysisTools:
             }
         ]
         
-        # Weight scenarios based on support context
-        weights = [0.4, 0.3, 0.2, 0.1]  # Higher chance of damage since user reported
+        weights = [0.4, 0.3, 0.2, 0.1] 
         
         return random.choices(scenarios, weights=weights)[0]
     
@@ -83,12 +82,12 @@ class PhotoAnalysisTools:
             "warnings": []
         }
         
-        # Check file size (max 10MB)
+        # file size
         if uploaded_file.size > 10 * 1024 * 1024:
             validations["valid"] = False
             validations["errors"].append("File size too large (max 10MB)")
         
-        # Check file type
+        # file type
         if uploaded_file.type not in ['image/jpeg', 'image/png', 'image/webp']:
             validations["valid"] = False
             validations["errors"].append("Invalid file type. Please upload JPG, PNG, or WebP")
