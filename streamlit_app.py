@@ -54,27 +54,27 @@ def main():
     db_models, support_agents, db_tools, photo_tools = components
     
     # Sidebar
-    with st.sidebar:
-        st.header("🤖 RAG + RAT AI System")
-        st.success("**Complete Features:**\n\n✅ RAG Policy Retrieval\n✅ RAT Step-by-Step Reasoning\n✅ Empathetic AI Responses\n✅ Tavily MCP Integration\n✅ Photo Analysis\n✅ Admin Workflow")
+    # with st.sidebar:
+    #     st.header("🤖 RAG + RAT AI System")
+    #     st.success("**Complete Features:**\n\n✅ RAG Policy Retrieval\n✅ RAT Step-by-Step Reasoning\n✅ Empathetic AI Responses\n✅ Tavily MCP Integration\n✅ Photo Analysis\n✅ Admin Workflow")
         
-        if st.button("🗑️ Clear Chat"):
-            for key in list(st.session_state.keys()):
-                if key.startswith(('messages', 'current_', 'awaiting_', 'issue_', 'first_')):
-                    del st.session_state[key]
-            st.rerun()
+    #     if st.button("🗑️ Clear Chat"):
+    #         for key in list(st.session_state.keys()):
+    #             if key.startswith(('messages', 'current_', 'awaiting_', 'issue_', 'first_')):
+    #                 del st.session_state[key]
+    #         st.rerun()
         
-        # Show current case status
-        if st.session_state.current_order:
-            st.header("📦 Current Case")
-            order = st.session_state.current_order
-            st.write(f"**Order:** {order['order_id']}")
-            st.write(f"**Product:** {order['product_name']}")
-            st.write(f"**Amount:** ₹{order['amount']}")
-            st.write(f"**Status:** {order['status']}")
-            if st.session_state.issue_type:
-                st.write(f"**Issue:** {st.session_state.issue_type}")
-            st.write(f"**Photo Required:** {'Yes' if st.session_state.awaiting_photo else 'No'}")
+    #     # Show current case status
+    #     if st.session_state.current_order:
+    #         st.header("📦 Current Case")
+    #         order = st.session_state.current_order
+    #         st.write(f"**Order:** {order['order_id']}")
+    #         st.write(f"**Product:** {order['product_name']}")
+    #         st.write(f"**Amount:** ₹{order['amount']}")
+    #         st.write(f"**Status:** {order['status']}")
+    #         if st.session_state.issue_type:
+    #             st.write(f"**Issue:** {st.session_state.issue_type}")
+    #         st.write(f"**Photo Required:** {'Yes' if st.session_state.awaiting_photo else 'No'}")
     
     # Welcome message
     if st.session_state.first_interaction:
