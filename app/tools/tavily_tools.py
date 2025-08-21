@@ -20,15 +20,10 @@ class TavilyMCP:
     def is_inappropriate_for_support(self, user_query):
         """Detect inappropriate queries for customer support"""
         inappropriate_keywords = [
-            # Personal life
-            "dating", "relationship", "girlfriend", "boyfriend", "marriage",
-            # Unrelated topics  
+            "dating", "relationship", "girlfriend", "boyfriend", "marriage",  
             "politics", "religion", "sports", "movies", "celebrity",
-            # Inappropriate content
             "sex", "adult", "xxx", "porn",
-            # Technical unrelated
             "coding", "programming", "software development",
-            # Random chat
             "how are you", "what's your name", "where do you live", "tell me joke"
         ]
         
