@@ -7,7 +7,7 @@ class RAGPolicyEngine:
     
     def __init__(self):
         self.policies = self.load_policy_files()
-        print(f"✅ RAG Policy Engine ready - {len(self.policies)} policies loaded")
+        print(f"RAG Policy Engine ready - {len(self.policies)} policies loaded")
     
     def load_policy_files(self):
         """Load and parse policy text files"""
@@ -35,7 +35,7 @@ class RAGPolicyEngine:
                     })
                     
             except FileNotFoundError:
-                print(f"⚠️ Policy file not found: {file_path}")
+                print(f"Policy file not found: {file_path}")
                 fallback = self._get_fallback_policy(policy_name)
                 if fallback:
                     policies.extend(fallback)
@@ -169,18 +169,18 @@ class RATReasoningEngine:
     
     def __init__(self, llm_manager):
         self.llm_manager = llm_manager
-        print("✅ RAT Reasoning Engine initialized")
+        print("RAT Reasoning Engine initialized")
     
     def think_through_policy(self, retrieved_policies, issue_type, order_data, user_query):
         """RAT: Multi-step reasoning through retrieved policies"""
         
-        # Step 1: Analyze the situation
+        #Analyze
         situation_analysis = self._analyze_situation(issue_type, order_data, user_query)
         
-        # Step 2: Apply policy rules step by step
+        #Apply policy
         policy_reasoning = self._reason_through_policies(retrieved_policies, situation_analysis)
         
-        # Step 3: Determine final recommendation
+        #Determine final recommendation
         final_decision = self._make_final_decision(policy_reasoning, situation_analysis)
         
         return {
@@ -272,7 +272,6 @@ class RATReasoningEngine:
         try:
             decision = self.llm_manager.get_supervisor_analysis(decision_prompt, max_tokens=500)
             
-            # Extract confidence level
             confidence = "medium"
             if "high confidence" in decision.lower():
                 confidence = "high"
@@ -313,12 +312,12 @@ class PolicyReasoningSystem:
     def __init__(self, llm_manager):
         self.rag_engine = RAGPolicyEngine()  # For retrieval
         self.rat_engine = RATReasoningEngine(llm_manager)  # For reasoning
-        print("✅ Combined RAG + RAT Policy System ready")
+        print("Combined RAG + RAT Policy System ready")
     
     def process_policy_query(self, issue_type, order_data, user_query):
         """Full RAG + RAT pipeline"""
         
-        # RAG: Retrieve relevant policies
+        # RAG Retrieving
         rag_result = self.rag_engine.query_policy(user_query, issue_type, n_results=3)
         
         if not rag_result["found"]:
@@ -329,7 +328,7 @@ class PolicyReasoningSystem:
                 "confidence": "low"
             }
         
-        # RAT: Think through the retrieved policies
+        # RAT Thinking
         rat_result = self.rat_engine.think_through_policy(
             rag_result["context"], 
             issue_type, 
