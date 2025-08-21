@@ -9,7 +9,7 @@ from app.tools.photo_analysis import PhotoAnalysisTools
 # Page config
 st.set_page_config(page_title="Swiggy Support", page_icon="🛟", layout="wide")
 
-# components
+# Initialize components
 @st.cache_resource
 def init_components():
     try:
@@ -22,14 +22,14 @@ def init_components():
         st.error(f"Init error: {str(e)}")
         return None, None, None, None
 
-# Session state
+# Session state initialization
 if "messages" not in st.session_state:
     st.session_state.messages = []
     st.session_state.current_order = None
     st.session_state.current_ticket = None
     st.session_state.awaiting_photo = False
     st.session_state.issue_type = None
-    st.session_state.first_interaction = True 
+    st.session_state.first_interaction = True
 
 def add_message_with_delay(content, delay=1.5):
     """Add message with natural typing delay"""
@@ -42,7 +42,10 @@ def add_message_with_delay(content, delay=1.5):
         st.markdown(content)
 
 def main():
-    st.title("🛟 Swiggy Support")      
+    st.title("🛟 Swiggy Support - RAG + RAT System")
+    # st.caption("AI Support with Retrieval Augmented Generation + Reasoning ❤️")
+    
+    # Initialize components
     components = init_components()
     if not all(components):
         st.error("System initialization failed")
@@ -50,6 +53,30 @@ def main():
     
     db_models, support_agents, db_tools, photo_tools = components
     
+    # Sidebar
+    with st.sidebar:
+        st.header("🤖 RAG + RAT AI System")
+        st.success("**Complete Features:**\n\n✅ RAG Policy Retrieval\n✅ RAT Step-by-Step Reasoning\n✅ Empathetic AI Responses\n✅ Tavily MCP Integration\n✅ Photo Analysis\n✅ Admin Workflow")
+        
+        if st.button("🗑️ Clear Chat"):
+            for key in list(st.session_state.keys()):
+                if key.startswith(('messages', 'current_', 'awaiting_', 'issue_', 'first_')):
+                    del st.session_state[key]
+            st.rerun()
+        
+        # Show current case status
+        if st.session_state.current_order:
+            st.header("📦 Current Case")
+            order = st.session_state.current_order
+            st.write(f"**Order:** {order['order_id']}")
+            st.write(f"**Product:** {order['product_name']}")
+            st.write(f"**Amount:** ₹{order['amount']}")
+            st.write(f"**Status:** {order['status']}")
+            if st.session_state.issue_type:
+                st.write(f"**Issue:** {st.session_state.issue_type}")
+            st.write(f"**Photo Required:** {'Yes' if st.session_state.awaiting_photo else 'No'}")
+    
+    # Welcome message
     if st.session_state.first_interaction:
         st.session_state.messages.append({
             "role": "assistant", 
@@ -57,6 +84,7 @@ def main():
         })
         st.session_state.first_interaction = False
     
+    # Chat history
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
@@ -92,6 +120,7 @@ def main():
                                 damage_msg = f"Damage confirm ho gaya - {analysis['damage_severity']} level. Policy check kar raha hun..."
                                 add_message_with_delay(damage_msg, 2.5)
                                 
+                                # Use RAG + RAT for policy decision
                                 policy_decision = support_agents.get_policy_decision_with_reasoning(
                                     "damage",
                                     st.session_state.current_order,
@@ -100,10 +129,8 @@ def main():
                                 
                                 if policy_decision["recommendation"] == "process_refund":
                                     resolution_msg = f"Policy ke according full refund approve ho gaya! ₹{st.session_state.current_order['amount']} refund process kar raha hun. 2-3 days mein account mein aa jayega."
-                                
                                 elif policy_decision["recommendation"] == "offer_replacement":
                                     resolution_msg = "Replacement arrange kar raha hun. Same day delivery hoga!"
-
                                 else:
                                     resolution_msg = "Admin approval leke solution dunga. Wait karo please."
                                 
@@ -115,24 +142,15 @@ def main():
                         st.session_state.awaiting_photo = False
                         st.rerun()
     
+    # Chat input
     if prompt := st.chat_input("Type your message..."):
-    if any(word in prompt.lower() for word in ["thank you", "thanks", "dhanyawad", "shukriya"]) and st.session_state.get('current_order'):
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        final_msg = "You're welcome! Happy to help. Chat session completed. 😊"
-        add_message_with_delay(final_msg)
-        st.session_state.chat_closed = True
-        st.rerun()
-        return
-        
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
         
         with st.spinner("Thinking..."):
             try:
+                # Enhanced query classification with RAG + RAT
                 query_result = support_agents.classify_and_handle_query(
                     prompt,
                     st.session_state.messages,
@@ -143,6 +161,7 @@ def main():
                     }
                 )
                 
+                # Handle different query types with AI
                 if query_result.get("needs_ai_response"):
                     response = support_agents.get_ai_response_with_context(
                         query_result,
@@ -157,15 +176,18 @@ def main():
                     
                     add_message_with_delay(response)
                     
+                    # Handle order ID extraction
                     order_id = support_agents.extract_order_id(prompt)
                     if order_id and not st.session_state.current_order:
                         st.session_state.current_order = support_agents.generate_order_data(order_id)
                         st.session_state.current_ticket = f"TKT{order_id}"
                     
+                    # Detect issue type
                     detected_issue = support_agents.detect_issue_type(prompt, st.session_state.messages)
                     if detected_issue:
                         st.session_state.issue_type = detected_issue
                     
+                    # Handle photo request for damage cases
                     if (st.session_state.issue_type == "damage" and 
                         st.session_state.current_order and 
                         not st.session_state.awaiting_photo):
