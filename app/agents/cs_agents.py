@@ -11,13 +11,11 @@ class SupportAgents:
         self.llm_manager = LLMManager()
         self.tavily_mcp = TavilyMCP()
         self.prompts = SupportPrompts()
-        # Initialize RAG + RAT system
         self.policy_system = PolicyReasoningSystem(self.llm_manager)
     
     def classify_and_handle_query(self, user_query, conversation_history, session_state):
         """Enhanced query classification with RAG + RAT"""
         
-        # Check inappropriate queries first
         if self.tavily_mcp.is_inappropriate_for_support(user_query):
             return {
                 "type": "inappropriate",
@@ -25,11 +23,9 @@ class SupportAgents:
                 "context": "User asked inappropriate question for support"
             }
         
-        # Check price queries
         if self.tavily_mcp.should_search_price(user_query):
             return self.handle_price_query(user_query, session_state)
         
-        # Regular support query - will use RAG + RAT
         return {"type": "support", "needs_ai_response": True}
     
     def get_policy_decision_with_reasoning(self, issue_type, order_data, user_query):
@@ -42,7 +38,6 @@ class SupportAgents:
                 "reasoning": "Need more information (issue type and order details) to make policy decision"
             }
         
-        # Run full RAG + RAT pipeline
         policy_result = self.policy_system.process_policy_query(
             issue_type, order_data, user_query
         )
