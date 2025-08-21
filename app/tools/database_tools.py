@@ -25,35 +25,6 @@ class DatabaseTools:
             )
         """)
         
-        # Admin requests table
-        # cursor.execute("""
-        #     CREATE TABLE IF NOT EXISTS admin_requests (
-        #         request_id TEXT PRIMARY KEY,
-        #         ticket_id TEXT,
-        #         order_id TEXT,
-        #         issue_summary TEXT,
-        #         policy_status TEXT,
-        #         photo_evidence TEXT,
-        #         chat_summary TEXT,
-        #         rag_rat_decision TEXT,
-        #         status TEXT DEFAULT 'pending',
-        #         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        #     )
-        # """)
-        
-        # # Support tickets table
-        # cursor.execute("""
-        #     CREATE TABLE IF NOT EXISTS support_tickets (
-        #         ticket_id TEXT PRIMARY KEY,
-        #         order_id TEXT,
-        #         issue_type TEXT,
-        #         status TEXT DEFAULT 'open',
-        #         priority TEXT DEFAULT 'medium',
-        #         rag_rat_reasoning TEXT,
-        #         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        #     )
-        # """)
-        
         conn.commit()
         conn.close()
     
@@ -89,25 +60,5 @@ class DatabaseTools:
             
         except Exception as e:
             return {"success": False, "error": str(e)}
-    
-    # def create_admin_request_with_rag_rat(self, ticket_id, order_id, issue_summary, rag_rat_decision, photo_evidence, chat_summary):
-    #     """Create admin request with RAG + RAT reasoning"""
-    #     conn = sqlite3.connect(self.db_path)
-    #     cursor = conn.cursor()
-        
-    #     request_id = f"ADM{str(uuid.uuid4())[:6].upper()}"
-        
-    #     cursor.execute("""
-    #         INSERT INTO admin_requests (
-    #             request_id, ticket_id, order_id, issue_summary, 
-    #             policy_status, photo_evidence, chat_summary, rag_rat_decision
-    #         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    #     """, (request_id, ticket_id, order_id, issue_summary, 
-    #           rag_rat_decision.get("recommendation", "unknown"), 
-    #           photo_evidence, chat_summary, 
-    #           str(rag_rat_decision)))
-        
-    #     conn.commit()
-    #     conn.close()
         
         return request_id
