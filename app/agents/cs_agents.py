@@ -75,7 +75,6 @@ class SupportAgents:
         SESSION_STATE: {session_state}
         """
         
-        # Add RAG + RAT reasoning for support queries
         if (query_result["type"] == "support" and 
             session_state.get("issue_type") and 
             session_state.get("current_order")):
@@ -95,7 +94,6 @@ class SupportAgents:
         elif query_result["type"] == "price_search_failed":
             context += f"\nPRODUCT: {query_result['product_name']} (price search failed)"
         
-        # Enhanced prompt for AI response
         ai_prompt = f"""
         {context}
         
