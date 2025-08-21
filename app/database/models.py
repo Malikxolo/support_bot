@@ -10,7 +10,6 @@ class DatabaseModels:
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
-        # Orders table
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS orders (
                 order_id TEXT PRIMARY KEY,
@@ -23,7 +22,6 @@ class DatabaseModels:
             )
         """)
         
-        # Conversations with RAG + RAT context
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS conversations (
                 conversation_id TEXT PRIMARY KEY,
@@ -37,4 +35,4 @@ class DatabaseModels:
         
         conn.commit()
         conn.close()
-        print("✅ Database initialized with RAG + RAT support")
+        print("Database initialized")
