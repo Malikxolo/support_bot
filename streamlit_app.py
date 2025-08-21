@@ -30,6 +30,7 @@ if "messages" not in st.session_state:
     st.session_state.awaiting_photo = False
     st.session_state.issue_type = None
     st.session_state.first_interaction = True
+     st.session_state.chat_closed = False 
 
 def add_message_with_delay(content, delay=1.5):
     """Add message with natural typing delay"""
@@ -43,7 +44,16 @@ def add_message_with_delay(content, delay=1.5):
 
 def main():
     st.title("🛟 Swiggy Support")
-    
+      
+    if st.session_state.get('chat_closed', False):
+        st.success("**Chat Completed Successfully**")
+        st.info("Your refund has been processed. Thank you for using Swiggy Support!")
+        if st.button("Start New Chat"):
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            st.rerun()
+        st.stop()  
+        
     components = init_components()
     if not all(components):
         st.error("System initialization failed")
@@ -101,8 +111,21 @@ def main():
                                 
                                 if policy_decision["recommendation"] == "process_refund":
                                     resolution_msg = f"Policy ke according full refund approve ho gaya! ₹{st.session_state.current_order['amount']} refund process kar raha hun. 2-3 days mein account mein aa jayega."
+                                    add_message_with_delay(resolution_msg, 3.0)
+        
+                                    closure_msg = "Thank you for using Swiggy Support! Your case is resolved. Have a great day! ❤️"
+                                    add_message_with_delay(closure_msg, 2.0)
+                                    st.session_state.chat_closed = True  
+                                
                                 elif policy_decision["recommendation"] == "offer_replacement":
                                     resolution_msg = "Replacement arrange kar raha hun. Same day delivery hoga!"
+                                    add_message_with_delay(resolution_msg, 3.0)
+        
+
+                                    closure_msg = "Replacement arranged! New order details SMS mein aa jayenge. Thank you!"
+                                    add_message_with_delay(closure_msg, 2.0)
+                                    st.session_state.chat_closed = True  
+
                                 else:
                                     resolution_msg = "Admin approval leke solution dunga. Wait karo please."
                                 
@@ -115,6 +138,17 @@ def main():
                         st.rerun()
     
     if prompt := st.chat_input("Type your message..."):
+    if any(word in prompt.lower() for word in ["thank you", "thanks", "dhanyawad", "shukriya"]) and st.session_state.get('current_order'):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        
+        final_msg = "You're welcome! Happy to help. Chat session completed. 😊"
+        add_message_with_delay(final_msg)
+        st.session_state.chat_closed = True
+        st.rerun()
+        return
+        
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
@@ -154,7 +188,6 @@ def main():
                     if detected_issue:
                         st.session_state.issue_type = detected_issue
                     
-                    # for damage cases
                     if (st.session_state.issue_type == "damage" and 
                         st.session_state.current_order and 
                         not st.session_state.awaiting_photo):
