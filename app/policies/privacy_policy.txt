@@ -1,0 +1,101 @@
+# Swiggy Privacy Policy
+
+**Last updated on January 8, 2025**
+
+This Privacy Policy (“Policy”) describes the policies and procedures of the collection, use, disclosure and protection of your information when you use our website located at swiggy.com, or the Swiggy mobile applications (collectively, “Swiggy Platform”) made available by Swiggy Limited (“Swiggy”, “Company”, “we”, “us” and “our”), a company established under the laws of India having its registered office at No.55 Sy No.8-14, Ground Floor, I&J Block, Embassy Tech Village, Outer Ring Road, Devarbisanahalli, Bengaluru – 560103.
+
+The terms “you” and “your” refer to the user of the Swiggy Platform. The term “Services” refers to any services offered by Swiggy whether on the Swiggy Platform or otherwise.
+
+Please read this Policy before using the Swiggy Platform or submitting any personal information to Swiggy. This Policy is a part of and incorporated within, and is to be read along with, the Terms of Use.
+
+## Your Consent
+
+By using the Swiggy Platform and the Services, you agree and consent to the collection, transfer, use, storage, disclosure and sharing of your information as described and collected by us in accordance with this Policy. If you do not agree with the Policy, please do not use or access the Swiggy Platform.
+
+## POLICY CHANGES
+
+We may occasionally update this Policy and the updated Policy will be posted on this page. If we make any significant changes to this Policy we will endeavor to intimate you of such changes, such as via prominent notice on the Swiggy Platform or to your email address on record and where required by applicable law, we will obtain your consent. To the extent permitted under the applicable law, your continued use of the Services following the changes to this Privacy Policy will constitute your consent and acceptance of those changes.
+
+## LINKS TO OTHER WEBSITES
+
+The Swiggy Platform may contain links to other websites and similar other features. Your use of such websites and/or features may result in the collection, processing or sharing of information about you, depending on the website/feature. Any personal information about you collected whilst visiting such websites/feature is not governed by this Policy, unless specifically mentioned otherwise...
+
+## INFORMATION WE COLLECT FROM YOU
+
+- **Device Information**: Hardware models, OS versions, software, file versions, device identifiers, advertising identifiers, mobile network info, installed apps, etc.
+- **Account Information**: Full name, email, address, postal code, password, gender, phone number, profile picture (optional).
+- **Preferences**: Time zone, language, search terms, feature usage, clicked ads.
+- **Your Content**: Ratings, reviews, order history, favorites, etc.
+- **Communications**: Messages between you and Swiggy, participation in surveys, contests, etc.
+- **Transactional Info**: Phone number, address, email, tokenized billing info.
+- **User Content (Public Posts)**: Ratings, reviews, comments, etc., posted publicly.
+- **Usage Information**: Traffic data, location, logs, etc.
+- **Files and Metadata**: Access with your consent.
+- **Location**: Real-time location, if permitted.
+- **Last URL Visited**
+- **Apps on Device**: Detected presence/details of other apps.
+- **From PDPs**: Photos, PAN, Aadhaar/Voter ID, DL, bank details, blood group, emergency contact, etc.
+
+We use this information to personalize and improve our services, provide support, analyze trends, comply with legal obligations, and enhance user experience.
+
+## COOKIES
+
+Swiggy and partners use cookies, pixel tags, beacons, and mobile IDs to:
+
+- Authenticate users
+- Remember preferences
+- Analyze trends
+- Track effectiveness of ads
+- Measure page popularity
+
+Cookies may be modified via browser settings. By using our services with cookies enabled, you consent to our use.
+
+## USES OF YOUR INFORMATION
+
+- To operate and personalize services
+- To fulfill contracts
+- For research, analytics, and security
+- For marketing (via email, SMS, etc.)
+- To support customers
+- For academic research (anonymized)
+- For contests and promotions
+- To generate analytics reports
+- To track delivery (for partners)
+- For internal audits and development
+
+## DISCLOSURE AND DISTRIBUTION
+
+Information may be shared with:
+
+- **Service Providers** (emails, payments, analysis)
+- **Connected Apps** (within Swiggy ecosystem)
+- **Partner Restaurants/Merchants**
+- **Academic Partners** (anonymized)
+- **Other Users** (for deliveries)
+- **Authorities** (legal compliance)
+- **Internal Group Companies**
+- **Advertisers/Ad Networks** (personalized ads)
+
+You may opt out of third-party ad tracking via www.aboutads.info/choices.
+
+## DATA SECURITY PRECAUTIONS
+
+- Vault/tokenization for sensitive data
+- PCI-compliant service providers
+- Passwords must be kept confidential
+- Internet transmission is not fully secure
+- Uses AWS cloud (data may be stored outside India)
+
+## OPT-OUT / WITHDRAWAL OF CONSENT
+
+You can unsubscribe via profile or email. To delete your data, email: `support@swiggy.in`. Processing may take up to 5 business days.
+
+## GRIEVANCE OFFICER
+
+Swiggy Grievance Officer  
+No.55 Sy No.8-14, Ground Floor, I&J Block,  
+Embassy Tech Village, Outer Ring Road,  
+Devarbisanahalli, Bengaluru – 560103  
+Email: grievances@swiggy.in
+
+Data is stored on Amazon Web Services (AWS). More info: [AWS Privacy Policy](https://aws.amazon.com/privacy)

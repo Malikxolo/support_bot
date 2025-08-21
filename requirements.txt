@@ -1,0 +1,12 @@
+streamlit==1.28.1
+groq==0.4.1
+requests==2.31.0
+python-dotenv==1.0.0
+httpx==0.27.2
+tavily-python==0.3.3
+chromadb==0.4.15
+sentence-transformers==2.2.2
+pillow==10.0.1
+pandas==2.1.3
+numpy==1.24.3
+python-multipart==0.0.12

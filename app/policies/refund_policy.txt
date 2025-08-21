@@ -1,0 +1,104 @@
+# Cancellation & Refund Policy
+
+Any capitalized terms used but not defined herein shall have the meaning assigned to them under the Terms of Use which govern your use of our website [www.swiggy.com](https://www.swiggy.com) (the “Website”) and our ‘Swiggy’ application for mobile and handheld devices (the “App”). The Website and the App are jointly referred to as the “Platform”.
+
+## Customer Cancellation
+
+As a general rule, the Buyer shall not be entitled to cancel an order once placed.
+
+If the Buyer cancels his/her order after placing it, Swiggy shall have the right to charge 100% of the order amount for breach of contract terms, as compensation for the damages suffered by Swiggy. This includes the right to either:
+- Not refund the order value (if the order is prepaid), or
+- Recover the amount from the Buyer’s subsequent order (if the order is postpaid),  
+to compensate the Merchants and Delivery Partners (PDPs).
+
+## Non-Customer Cancellation
+
+Swiggy reserves the right to collect a penalty for orders cancelled by Swiggy for reasons not attributable to Swiggy, including but not limited to:
+- The address provided by the Buyer is either wrong or outside the delivery zone
+- Failure to contact the Buyer by phone or email at the time of delivery
+- Lack of information, direction, or authorization from the Buyer
+- Unavailability of all ordered items
+
+In such events, Swiggy will contact the Buyer and allow them to cancel the entire order and be entitled to a refund up to 100% of the order value.
+
+If cancellation is due to reasons attributable to Swiggy or the Merchant or PDP, no penalty will be charged.
+
+## Cancellation Policy for Instamart
+
+Orders placed via Instamart are non-cancellable and non-refundable **except** under the following conditions:
+- The order has not been packed by the Merchant
+- Swiggy cancels the order for reasons not attributable to the Buyer (e.g. item unavailability, delivery partner issues)
+- The order is not delivered within the estimated delivery time
+- The Merchant cancels the order (e.g. store closed, unable to fulfill orders)
+
+Swiggy may review the request and determine eligibility for cancellation and refund. If approved, the refund will be processed after applicable deductions.
+
+If the cancellation request does not fall under the above conditions, up to **100% of the order value may be charged**.
+
+## Cancellation Policy for Swiggy Genie
+
+- If cancelled **after the delivery partner has arrived** at the pickup location but **has not picked up** items: a cancellation fee of ₹40 to ₹75 may apply (based on city).
+- If cancelled **after the delivery partner has picked up** the items: cancellation fee = entire service fee.
+
+## Refunds
+
+Buyers may be eligible for refunds for **prepaid orders**, subject to deductions:
+- **Tampered/Damaged Packaging**: Refund if Buyer refuses the order for packaging issues at delivery time
+- **Non-Delivery by PDP or Swiggy**: Refund up to 100% based on case review
+- Swiggy’s refund decision is final and binding
+
+### Instamart Refunds
+
+Buyers may be eligible for refund/replacement (up to 100%) **if reported within the claim window**, for:
+1. Tampered/Damaged packaging
+2. Incomplete order
+3. Incorrect items
+4. No resolution without Merchant's permission
+
+### Refund Timeline by Payment Method
+
+| Payment Method                      | Refund Source | Turnaround Time |
+|------------------------------------|---------------|-----------------|
+| Net Banking                        | Source        | 5–7 Business Days |
+| Debit/Credit Cards                 | Source        | 5–7 Business Days |
+| UPI                                | Source        | 2 Hours         |
+| Amazon Pay (Wallet)                | Source        | 5–7 Business Days |
+| Amazon Pay (CC/DC/NB)              | Source        | 5–7 Business Days |
+| PhonePe (Wallet)                   | Source        | 5–7 Business Days |
+| PhonePe (CC/DC/NB)                 | Source        | 5–7 Business Days |
+| Paytm/Mobikwik/Freecharge Wallets  | Source        | 2 Hours         |
+| Lazy Pay                           | Source        | 2 Hours         |
+| Sodexo                             | Source        | 5–7 Business Days |
+
+### COD (Cash on Delivery) Orders
+
+Buyer is **not required to pay** if:
+- Packaging is tampered/damaged
+- Wrong order is delivered
+- Items are missing
+
+Must report to Swiggy Customer Care via the Platform **before the order is marked delivered**.
+
+## Orders Involving Alcohol
+
+### Cancellation:
+- No cancellation allowed once placed
+- If cancelled, Swiggy may charge **100% of the order value** (no refund for prepaid orders or deduction from future orders)
+
+### Non-Customer Cancellation:
+Reasons Swiggy may cancel and charge cancellation fee:
+- Invalid address
+- Buyer unreachable
+- Lack of authorization/information
+- Buyer fails to provide OTP to PDP
+
+### Refunds:
+Refunds for prepaid orders may be provided if:
+- Delivery not made within 2 hours
+- Merchant cancels due to valid issues (e.g. store closed)
+
+Swiggy will determine refund eligibility and may offer refund up to **100% of the order value**.
+
+**Important Notes**:
+1. Buyer must verify the order before sharing OTP. After OTP is given, the order is considered delivered and **non-refundable**.
+2. For **spurious products**, the **Merchant is solely liable**. Swiggy is only a facilitator and assumes **no product liability**, but may report such issues to authorities.
